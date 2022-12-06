@@ -1,32 +1,33 @@
 import plotly.express as px
 import pandas as pd
-import numpy as np
 
-# Import data from the excel file
+### Import data from the excel file
 df = pd.read_excel('/Users/cem_ataman/Desktop/data_map_deneme.xlsx', sheet_name = 'Sheet1')
 
-
-# Define the Sunburst features
+### Define the Sunburst features
 fig = px.sunburst(
     data_frame=df,
     path=["CID", 'Argument', "reply1", "reply2", "reply3", "reply4", "reply5"],  # Root, branches, leaves
-    color="CID",
-    color_discrete_sequence=px.colors.qualitative.Pastel,
-    # maxdepth=-1,                        # set the sectors rendered. -1 will render all levels in the hierarchy
-    # color="Victim's age",
-    # color_continuous_scale=px.colors.sequential.BuGn,
-    # range_color=[10,100],
 
-    branchvalues="remainder",               # or 'total'
-    # hover_name="Unarmed",
-    # # hover_data={'Unarmed': False},    # remove column name from tooltip  (Plotly version >= 4.8.0)
-    # title="7-year Breakdown of Deaths by Police",
-    # template='ggplot2',               # 'ggplot2', 'seaborn', 'simple_white', 'plotly',
-    #                                   # 'plotly_white', 'plotly_dark', 'presentation',
-    #                                   # 'xgridoff', 'ygridoff', 'gridon', 'none'
+    ### define color
+    color="color",
+    # color_discrete_sequence=px.colors.qualitative.Pastel, ### if it is textual data
+    color_continuous_scale=px.colors.sequential.dense,  ### if it is numeric data
+    range_color=[1,10],
+
+    ### define text
+    branchvalues="total",  ### or 'remainder'
+    hover_name="comment",
+    hover_data={'comment': False},
+    title="CEM ATAMAN",
+    template='ggplot2',    ### 'ggplot2', 'seaborn', 'simple_white', 'plotly',
+                           ### 'plotly_white', 'plotly_dark', 'presentation',
+                           ### 'xgridoff', 'ygridoff', 'gridon', 'none'
 )
 
-fig.update_traces(textinfo='label+percent entry')
-fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+### choose what to show as labels in the figure
+fig.update_traces(textinfo='label')
 
+### locate figure on plot by distance (top, left, right, bottom)
+fig.update_layout(margin=dict(t=100, l=100, r=0, b=0))
 fig.show()
