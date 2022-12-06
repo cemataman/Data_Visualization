@@ -2,7 +2,7 @@ import plotly.express as px
 import pandas as pd
 
 ### Import data from the excel file
-df = pd.read_excel('/Users/cem_ataman/Desktop/data_map_deneme.xlsx', sheet_name = 'Sheet1')
+df = pd.read_excel('/Users/cem_ataman/Desktop/sunburst_diagrams.xlsx', sheet_name = 'sunburst1')
 
 ### Define the Sunburst features
 fig = px.sunburst(
