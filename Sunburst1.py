@@ -31,3 +31,4 @@ fig.update_traces(textinfo='label')
 ### locate figure on plot by distance (top, left, right, bottom)
 fig.update_layout(margin=dict(t=100, l=100, r=0, b=0))
 fig.show()
+
