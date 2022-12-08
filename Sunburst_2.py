@@ -19,9 +19,9 @@ print('child: ' , child)
 value = [int(x) for x in df['value'].values.tolist()]
 print('value: ', value)
 
-print(len(parent))
-print(len(child))
-print(len(value))
+# print(len(parent))
+# print(len(child))
+# print(len(value))
 
 ###create our data as dictionary
 data = dict(
