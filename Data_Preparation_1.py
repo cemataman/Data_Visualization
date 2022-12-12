@@ -7,7 +7,6 @@ df.rename(columns={'Fleeing (Source: WaPo)': 'Fleeing'}, inplace=True)
 
 df = df[df["State"].isin(['NY', 'CA', 'TX'])]
 df = df[df["Victim's race"].isin(["White", "Black", "Hispanic", "Asian"])]
-
 '''
 
 def check_if_cell(row):

@@ -7,7 +7,6 @@ import copy
 df = pd.read_excel('/Users/cem_ataman/Desktop/conceptioncomments.xlsx')
 
 #### CREATING A DATAFRAME WITH PARENT AND CHILD COLUMNS ####
-
 new_df = pd.DataFrame()
 unique_values = []
 
