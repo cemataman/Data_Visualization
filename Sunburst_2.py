@@ -15,6 +15,7 @@ print('parent: ', parent)
 child_int = [int(x) for x in df['child'].values.tolist()]
 child = [str(x) for x in child_int]
 print('child: ' , child)
+print(len(child))
 
 value = [int(x) for x in df['value'].values.tolist()]
 print('value: ', value)
