@@ -16,7 +16,7 @@ fig = px.sunburst(
     range_color=[1,10],
 
     ### define text
-    branchvalues="total",  ### or 'remainder'
+    branchvalues="remainder",  ### or 'remainder'
     hover_name="comment",
     hover_data={'comment': False},
     title="CEM ATAMAN",
