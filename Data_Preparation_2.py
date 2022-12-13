@@ -1,10 +1,11 @@
-import plotly.express as px
 import pandas as pd
-import numpy as np
 import copy
 
 ### Import data from the excel file
 df = pd.read_excel('/Users/cem_ataman/Desktop/conceptioncomments.xlsx')
+
+# Modify topic names in columns
+df['a'] = 'topic ' + df['a'].astype(str)
 
 #### CREATING A DATAFRAME WITH PARENT AND CHILD COLUMNS ####
 new_df = pd.DataFrame()
@@ -29,9 +30,9 @@ for i in range(len(df.iloc[:,0])):
             new_dict.update({'root': row['a']})
 
         new_df = new_df.append(new_dict, ignore_index=True)
-print(new_df)
 
-### Add the unique values (topic numbers) as children into the dataframe
+
+### Add the unique values (topics) as children into the dataframe
 for val in unique_values:
     new_row = copy.deepcopy(new_df.iloc[0,:])
     new_dict = new_row.to_dict()
@@ -40,8 +41,7 @@ for val in unique_values:
             new_dict.update({'branch':val})
         else: new_dict.update({x:''})
     new_df = new_df.append(new_dict, ignore_index=True)
-
-new_df['root'].replace(" ", np.nan, inplace=True)
-new_df.dropna(subset=['root'], inplace=True)
+    new_df['root'].replace('', ' ', inplace=True)
+    new_df.dropna(subset=['root'], inplace=True)
 
 new_df.to_excel('Sunburst_Data_2.xlsx')
