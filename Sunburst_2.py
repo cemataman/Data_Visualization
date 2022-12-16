@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 ### Import data from the excel file and delete the null rows
-df = pd.read_excel('/Users/cem_ataman/PycharmProjects/Data_Visualization/Sunburst_Data_2.xlsx', sheet_name = 'Sheet1')
+df = pd.read_excel('/Users/cem_ataman/PycharmProjects/Data_Visualization/Sunburst_Data.xlsx', sheet_name = 'Sheet1')
 
 ###create our lists with parent and child values
 parent = [str(x) for x in df['root'].values.tolist()]
