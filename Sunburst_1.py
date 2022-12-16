@@ -29,6 +29,16 @@ fig = px.sunburst(
 fig.update_traces(textinfo='label')
 
 ### locate figure on plot by distance (top, left, right, bottom)
-fig.update_layout(margin=dict(t=100, l=100, r=0, b=0))
-fig.show()
+fig.update_layout(margin=dict(t=50, l=0, r=0, b=0),
+                  coloraxis_colorbar_x=0.8, #location of the legend
+                  title=dict(y=0.9, font=dict(size=15))) # size of the plot title
 
+### update the size and font of the colorbar legend
+# fig.update_coloraxes(colorbar_len=0.5,
+#                      colorbar_thickness=15,
+#                      colorbar_tickfont_size=10)
+
+### hide the colorbar legend
+fig.update_coloraxes(showscale=False)
+
+fig.show()
