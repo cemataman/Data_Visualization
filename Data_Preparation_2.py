@@ -1,5 +1,18 @@
 import pandas as pd
+import numpy as np
 import copy
+
+import warnings
+import logging
+logging.captureWarnings(True)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+
+### Dataframe display settings
+desired_width=520
+pd.set_option('display.width', desired_width)
+np.set_printoptions(linewidth=desired_width)
+pd.set_option('display.max_columns',10)
 
 ### Import data from the excel file
 df = pd.read_excel('/Users/cem_ataman/Desktop/conceptioncomments.xlsx')
@@ -45,3 +58,4 @@ for val in unique_values:
     new_df.dropna(subset=['root'], inplace=True)
 
 new_df.to_excel('Sunburst_Data_2.xlsx')
+print(new_df)

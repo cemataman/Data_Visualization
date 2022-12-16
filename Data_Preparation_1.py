@@ -17,8 +17,6 @@ cdict = {"main": []}
 
 #for k in range(len(df["Contribution ID"]))
 
-
-
 for j in range(len(df["Comment ID"])):
     cid = df["Comment ID"][j]
     if not check_if_cell(df["Comment Subject"][j]):
